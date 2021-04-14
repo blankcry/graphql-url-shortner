@@ -1,0 +1,12 @@
+type Query {
+    validateUrl(url: String!): Url!
+}
+type Mutation {
+    shortenUrl(url: String!): Url!
+}
+
+type Url {
+    short_id: String!
+    short_url: String!
+    full_url: String!
+}
