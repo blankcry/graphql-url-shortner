@@ -30,8 +30,6 @@ const startServer = async function(){
 
     server.applyMiddleware({app})
     server.setGraphQLPath("/graphiql")
-    server.subscriptionsPath = {path: "/graphiql"}
-    server.subscriptionServerOptions = {path: "/graphiql"}
 
     app.use("/:short_id", async (req, res, next) => {
         try {
@@ -53,7 +51,6 @@ const startServer = async function(){
     await new Promise((resolve) => {
         app.listen({ port: process.env.PORT || 4000 }, resolve)
     });
-    console.log(server)
     console.log(`🚀 Graphql Playground mounted at http://localhost:4000${server.graphqlPath}`);
     return { server, app };
 }
