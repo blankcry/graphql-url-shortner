@@ -1,12 +1,9 @@
 type Query {
-    validateUrl(url: String!): Url!
+    shortenUrl(url: String!): Url! #query definition to shorten url, takes a url and validates, then shortens it.
+    feed: [Url!]! #query definition to get all the shortened url and their full, retun an array of type Url
 }
-type Mutation {
-    shortenUrl(url: String!): Url!
-}
-
 type Url {
-    short_id: String!
+    short_id: String! #defines the Scalar type for short_id, short_url and full_url
     short_url: String!
     full_url: String!
 }
